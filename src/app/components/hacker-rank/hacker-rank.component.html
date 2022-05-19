@@ -1,0 +1,24 @@
+<form class="controller" [formGroup]="controller">
+  <input type="text" formControlName="limit" placeholder="set limit">
+  <input type="text" formControlName="search" placeholder="search">
+  <select formControlName="filterBy">
+    <option value="author">author</option>
+    <option value="_tags">_tags</option>
+    <option value="title">title</option>
+    <option value="">-</option>
+  </select>
+</form>
+<div
+*ngFor="let item of list"
+class="card">
+  <p class="author"><span class="author-title">Author: </span>{{item.author}}</p>
+  <p *ngIf="item.title" class="title"><span class="author-title">Title: </span>{{item.title}}</p>
+  <p class="story-title">{{item.story_title}}</p>
+  <p class="comment">{{item.comment_text}}</p>
+  <p class="created-at">{{item.created_at | date:'short'}}</p>
+  <div class="delete" (click)="delete(item._id)">x</div>
+  <div
+  *ngFor="let tag of item._tags">
+    <p class="comment">{{tag}}</p>
+  </div>
+</div>

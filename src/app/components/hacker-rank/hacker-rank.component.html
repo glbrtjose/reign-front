@@ -1,4 +1,5 @@
 <form class="controller" [formGroup]="controller">
+  <input type="text" formControlName="skip" placeholder="skip">
   <input type="text" formControlName="limit" placeholder="set limit">
   <input type="text" formControlName="search" placeholder="search">
   <select formControlName="filterBy">
@@ -17,8 +18,9 @@ class="card">
   <p class="comment">{{item.comment_text}}</p>
   <p class="created-at">{{item.created_at | date:'short'}}</p>
   <div class="delete" (click)="delete(item._id)">x</div>
-  <div
+  <p class="tags">Tags:</p>
+  <ul
   *ngFor="let tag of item._tags">
-    <p class="comment">{{tag}}</p>
-  </div>
+    <li class="tag">{{tag}}</li>
+  </ul>
 </div>

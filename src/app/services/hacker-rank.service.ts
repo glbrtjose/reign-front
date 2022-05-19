@@ -12,7 +12,7 @@ export class HackerRankService {
 
   get(params:any):Observable<any>{
     const { limit, search, filterBy } = params;
-    return this._HttpClient.get(this.url,{params: { limit, search, filterBy }});
+    return this._HttpClient.get(this.url,{params});
   }
 
   delete(_id:string):Observable<any>{
